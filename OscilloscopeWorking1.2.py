@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 #-----------------------------------------------------------------------------
 
-'''Create figure'''
+'''Create figure please'''
 plt.ion()
 fig = plt.figure(figsize=(8,6))
 ax = fig.add_subplot(111)
