@@ -22,7 +22,7 @@ sample_rate_dict = {'125':'125MHz', '15.6': '15_6MHz', '1.9': '1_9MHz'} #possibl
 
 rp_s.tx_txt('ACQ:DEC 64') #decimation
 rp_s.tx_txt('ACQ:SRAT '+ sample_rate_dict['125']) #sample rate
-rp_s.tx_txt('ACQ:TRIG:LEV 0') #trigger level in mV
+rp_s.tx_txt('ACQ:TRIG:LEV 100') #trigger level in mV
 rp_s.tx_txt('ACQ:TRIG:DLY 8192') #trigger delay in sample steps
 
 #-----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ while 1:
         buff = getdata() #get new set of data
         l.set_ydata(buff) #updata graph
         g.set_ydata(np.fft.fft(buff)) #updates fft
-        ax.set_ylim([0.97*np.min(buff), np.max(buff)])
+        ax.set_ylim([0.95*np.min(buff), 1.05*np.max(buff)])
         #ax2.set_ylim([np.min(np.fft.fft(buff)), np.max(np.fft.fft(buff))])
         plt.draw()
         plt.pause(0.0000000001)

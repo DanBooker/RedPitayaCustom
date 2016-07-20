@@ -23,7 +23,7 @@ sample_rate_dict = {'125':'125MHz', '15.6': '15_6MHz', '1.9': '1_9MHz'} #possibl
 rp_s.tx_txt('ACQ:DEC 64') #decimation
 rp_s.tx_txt('ACQ:SRAT '+ sample_rate_dict['125']) #sample rate
 rp_s.tx_txt('ACQ:TRIG:LEV 0') #trigger level in mV
-rp_s.tx_txt('ACQ:TRIG:DLY 8192') #trigger delay in sample steps
+rp_s.tx_txt('ACQ:TRIG:DLY 4000') #trigger delay in sample steps
 rp_s.tx_txt('ACQ:AVG ON')
 
 #-----------------------------------------------------------------------------
@@ -49,15 +49,28 @@ buff = getdata() #get data from red pitaya
 l, = ax.plot(buff[::step]) #plot data
 g, = ax2.plot(np.gradient(buff[::step],1))
 #ax2.set_xlim([0, 340])
-ax2.set_ylim([-5e-6,5e-6])
+ax2.set_ylim([-1e-3,1e-3])
 plt.show()
+#-----------------------------------------------------------------------------
+samples=100
+mem=np.zeros([samples,len(np.gradient(buff[::step],1))])
 
+def average(array,memory,samples=10):
+    memory[samples-1,:]=array
+    for i in range(0,samples-1):
+        mem[i,:]=mem[i+1]
+    average=np.zeros([len(array)])
+    for i in range(0,len(array)):
+        for j in range(0,samples):
+            average[i]+=mem[j,i]/samples
+    return average
+#-----------------------------------------------------------------------------
 
 while 1:
     try:
         buff = getdata() #get new set of data
         l.set_ydata(buff[::step]) #updata graph
-        g.set_ydata(np.gradient(buff[::step],1000)) #updates fft
+        g.set_ydata(average(np.gradient(buff[::step],1),mem,samples))
         ax.set_ylim([0.97*np.min(buff[::step]), np.max(buff[::step])])
         #ax2.set_ylim([np.min(np.gradient(buff,100)), np.max(np.gradient(buff,100))])
         plt.draw()
