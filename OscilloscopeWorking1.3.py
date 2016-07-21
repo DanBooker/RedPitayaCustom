@@ -2,6 +2,7 @@ import numpy as np
 import redpitaya_scpi as scpi
 import matplotlib.pyplot as plt
 
+
 #-----------------------------------------------------------------------------
 
 '''Create figure'''
@@ -20,7 +21,7 @@ timescale = 1 #timescale of x-axis in ms
 
 sample_rate_dict = {'125':'125MHz', '15.6': '15_6MHz', '1.9': '1_9MHz'} #possible sample rates
 
-rp_s.tx_txt('ACQ:DEC 64') #decimation
+rp_s.tx_txt('ACQ:DEC 8192') #decimation
 rp_s.tx_txt('ACQ:SRAT '+ sample_rate_dict['125']) #sample rate
 rp_s.tx_txt('ACQ:TRIG:LEV 100') #trigger level in mV
 rp_s.tx_txt('ACQ:TRIG:DLY 8192') #trigger delay in sample steps
@@ -28,7 +29,7 @@ rp_s.tx_txt('ACQ:TRIG:DLY 8192') #trigger delay in sample steps
 #-----------------------------------------------------------------------------
 
 '''Function to read data from Red Pitaya and return as array'''
-def getdata(ch=1, tch=2):
+def getdata(ch=1, tch=1):
     rp_s.tx_txt('ACQ:START')
     rp_s.tx_txt('ACQ:TRIG CH%d_PE' % tch)
     while 1:        

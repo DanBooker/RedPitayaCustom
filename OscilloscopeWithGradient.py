@@ -10,26 +10,26 @@ fig = plt.figure(figsize=(8,6))
 ax = fig.add_subplot(211)
 ax2 = fig.add_subplot(212)
 ax.set_ylabel('Voltage(V)')
-ax.set_xlabel('Time(ms)')
+ax.set_xlabel('Samples')
 
 #-----------------------------------------------------------------------------
 
 rp_s = scpi.scpi('152.78.193.126') #connect to red pitaya ip
 
-timescale = 1 #timescale of x-axis in ms
+scale = 1 #scale of x-axis in ms
 
 sample_rate_dict = {'125':'125MHz', '15.6': '15_6MHz', '1.9': '1_9MHz'} #possible sample rates
 
-rp_s.tx_txt('ACQ:DEC 64') #decimation
+rp_s.tx_txt('ACQ:DEC 1024') #decimation
 rp_s.tx_txt('ACQ:SRAT '+ sample_rate_dict['125']) #sample rate
 rp_s.tx_txt('ACQ:TRIG:LEV 0') #trigger level in mV
-rp_s.tx_txt('ACQ:TRIG:DLY 4000') #trigger delay in sample steps
+rp_s.tx_txt('ACQ:TRIG:DLY 8192') #trigger delay in sample steps
 rp_s.tx_txt('ACQ:AVG ON')
 
 #-----------------------------------------------------------------------------
 
 '''Function to read data from Red Pitaya and return as array'''
-def getdata(ch=1, tch=2):
+def getdata(ch=1, tch=1):
     rp_s.tx_txt('ACQ:START')
     rp_s.tx_txt('ACQ:TRIG CH%d_PE' % tch)
     while 1:        
@@ -70,11 +70,18 @@ while 1:
     try:
         buff = getdata() #get new set of data
         l.set_ydata(buff[::step]) #updata graph
-        g.set_ydata(average(np.gradient(buff[::step],1),mem,samples))
-        ax.set_ylim([0.97*np.min(buff[::step]), np.max(buff[::step])])
-        #ax2.set_ylim([np.min(np.gradient(buff,100)), np.max(np.gradient(buff,100))])
+        gradient=average(np.gradient(buff[::step],1),mem,samples)
+        g.set_ydata(gradient)
+        ax.set_ylim([np.min(buff[::step]), np.max(buff[::step])])
+        ax2.set_ylim([np.min(gradient), np.max(gradient)])
         plt.draw()
         plt.pause(0.0000000001)
     except KeyboardInterrupt:
+        gradient=average(np.gradient(buff[::step],1),mem,samples)
+        for i in range(0,len(gradient)-1):
+            if gradient[i]>=0 and gradient[i+1]<=0:
+                print 'Maximum:',i, gradient[i], gradient[i+1]
+            elif gradient[i]<=0 and gradient[i+1]>=0:
+                print 'Minimum:',i, gradient[i], gradient[i+1]
         rp_s.tx_txt('ACQ:RST')   #reset acqusition
         break
