@@ -19,7 +19,7 @@ fig6 = fig.add_subplot(326) # Row 3 Column 2 = FM Frequency Spectrum
 carrier = np.sin(2*np.pi*Fc*time);  #Set up Carrier, Audio, and FM waves
 audio = np.sin(2*np.pi*Fa*time);
 audioInt = -np.cos(2*np.pi*Fa*time);
-freqMod = np.sin(2*np.pi*Fc*time +2*np.pi*audioInt);
+freqMod = np.sin(2*np.pi*Fc*time +0.5*np.sin(2*np.pi*audioInt));
 
 fftc = np.abs(np.fft.fft(carrier))   #Setup FFT for all waves
 freqc = np.fft.fftfreq(fftc.size, fsi)
@@ -27,7 +27,7 @@ freqc = np.fft.fftfreq(fftc.size, fsi)
 ffta = np.abs(np.fft.fft(audio))
 freqa = np.fft.fftfreq(ffta.size, fsi)
 
-fftm = np.abs(np.fft.fft(freqMod))
+fftm = (np.fft.fft(freqMod))
 freqm = np.fft.fftfreq(fftm.size, fsi)
 
 fig4.set_xlim([0,max(fftc)]) #Set axis labels

@@ -9,8 +9,10 @@ from peakutils.plot import plot as pk
 '''Create figure'''
 plt.ion()
 fig = plt.figure(figsize=(8,6))
-ax = fig.add_subplot(211)
-ax2 = fig.add_subplot(212)
+ax = fig.add_subplot(411)
+ax2 = fig.add_subplot(412)
+ax3 = fig.add_subplot(413)
+ax4 = fig.add_subplot(414)
 ax.set_ylabel('Voltage(V)')
 ax.set_xlabel('Time(ms)')
 
@@ -53,15 +55,15 @@ Decimation = rp_s.rx_txt()
 Decimation = int(Decimation.replace("ERR!", ""))
 Sf = 8192/Decimation
 #Cf = 0.928 # 200KHz to 400KHz 
-Cf = 0.93185 # 750KHz Upwards
-#Cf = 0.939 # 100Khz and Below
-#Cf = 0.935 # Around 500KHz
-Ff = 0.9975
+#Cf = 0.93185 # 750KHz Upwards
+#Cf = 0.939 # 100Khz and Below   For the sake of Signal generator
+#Cf = 0.935 # Around 500KHz      probably not necessary for laser.
+Cf = 0.931125
+Ff = 1.00078
 
 #-----------------------------------------------------------------------------
 
 freqMod = getdata() #get data from red pitaya
-#time = np.linspace(0, timescale, len(buff))
 
 fs = len(freqMod)
 fsi = 1.0/fs
@@ -69,18 +71,21 @@ timeEnd =1
 time = np.linspace(0,1.0/Sf,fs*timeEnd)
 
 fftm = np.abs(np.fft.fft(freqMod))
-freqm = np.fft.fftfreq(fftm.size, fsi)
+freqm = Sf*Cf*np.fft.fftfreq(fftm.size, fsi)
 positives = np.where(freqm>=0)
 fftm = fftm[positives]
 freqm = freqm[positives]
 
-FaS = np.sin(2*np.pi*Fa1*time)
-FcS = np.sin(np.arcsin(freqMod) - FaS)
+ffts = np.abs(np.fft.fft(ProdS))
+freqs = Sf*np.fft.fftfreq(ffts.size, fsi)
+positives = np.where(freqs>=0)
+ffts = ffts[positives]
+freqs = freqs[positives]
 
 l, = ax.plot(time, freqMod) #plot data
 g, = ax2.plot(freqm, fftm)
-#ax2.set_xlim([0, 340])
-#ax2.set_ylim([-8000,8000])
+h, = ax3.plot(time, ProdS)
+j, = ax4.plot(freqs,ffts)
 
 plt.show()
 
@@ -105,6 +110,10 @@ while 1:
         ax.set_xlim([0,0.00001])
         ax2.set_xlim([0,0.5*np.max(freqm)])
         ax2.set_ylim([0,np.max(fftm)])
+        h.set_ydata(ProdS)
+        h.set_xdata(time)
+        j.set_ydata(ffts)
+        j.set_xdata(freqs)
         
         indexes = peakutils.indexes(fftm, thres=0.03, min_dist=10)
         l1=freqm[indexes[(len(indexes)-1)/2]] #Defining peaks left and right of the centre peak
@@ -124,11 +133,21 @@ while 1:
         Sbh=Fao+Fa1
         print "  ",Fao,"  |     ",Fa1,"   | ",Sbl," | ",Sbh
         print Al1, Ar1
+        
+        AmpA = AmpB = max(freqMod)
+        
+        Prod = AmpA*np.sin(l1*time)*AmpB*np.sin(r1*time)
+        ProdS = Prod + AmpA*np.cos((l1+r1)*time)*AmpB/2
+        
+        ffts = np.abs(np.fft.fft(ProdS))
+        freqs = Sf*np.fft.fftfreq(ffts.size, fsi)
+        positives = np.where(freqs>=0)
+        ffts = ffts[positives]
+        freqs = freqs[positives]
+        
     except KeyboardInterrupt:
         rp_s.tx_txt('ACQ:RST')   #reset acqusition
         break
-    
-
 
 #indexes = peakutils.indexes(fftm, thres=0.02, min_dist=30)
 #plt.figure(figsize=(10,6))
