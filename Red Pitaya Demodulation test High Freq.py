@@ -2,7 +2,6 @@ import numpy as np
 import redpitaya_scpi as scpi
 import matplotlib.pyplot as plt
 import peakutils
-from peakutils.plot import plot as pk
 
 #-----------------------------------------------------------------------------
 
@@ -19,7 +18,7 @@ ax.set_xlabel('Time(ms)')
 
 #-----------------------------------------------------------------------------
 
-rp_s = scpi.scpi('152.78.193.126') #connect to red pitaya ip
+rp_s = scpi.scpi('152.78.194.163') #connect to red pitaya ip
 
 timescale = 1 #timescale of x-axis in ms
 
@@ -59,7 +58,6 @@ Sf = 8192/Decimation
 #Cf = 0.939 # 100Khz and Below   For the sake of Signal generator
 #Cf = 0.935 # Around 500KHz      probably not necessary for laser.
 Cf = 0.931125
-Ff = 1.00078
 
 #-----------------------------------------------------------------------------
 
@@ -70,8 +68,6 @@ fsi = 1.0/fs
 timeEnd =1
 time = np.linspace(0,1.0/Sf,fs*timeEnd)
 
-ProdS=time
-
 fftm = np.abs(np.fft.fft(freqMod))
 freqm = Sf*Cf*np.fft.fftfreq(fftm.size, fsi)
 positives = np.where(freqm>=0)
@@ -79,13 +75,13 @@ fftm = fftm[positives]
 freqm = freqm[positives]
 
 indexes = peakutils.indexes(fftm, thres=0.03, min_dist=10)
-l1=freqm[indexes[(len(indexes)-1)/2]] #Defining peaks left and right of the centre peak
-r1=freqm[indexes[(1+len(indexes))/2]]
-Al1=fftm[indexes[(1+len(indexes))/2]]
+l1=freqm[indexes[(len(indexes)-2)/2]] #Defining peaks left and right of the centre peak
+r1=freqm[indexes[(2+len(indexes))/2]]
+Al1=fftm[indexes[(2+len(indexes))/2]]
 Ar1=fftm[indexes[(len(indexes)-2)/2]]
 
 Fao = freqm[indexes[(len(indexes))/2]] #Carrier Frequency
-Fa1 = Ff*((Fao - l1) + (r1 - Fao)) #Distance between two frequencies, FM Frequency
+Fa1 = ((Fao - l1) + (r1 - Fao))/2 #Distance between two frequencies, FM Frequency
 
 FaS = np.sin(2*np.pi*Fa1*time)*np.max(freqMod)
 FcS = np.sin(np.arcsin(freqMod) - FaS)
@@ -138,30 +134,30 @@ while 1:
         h.set_xdata(time)
         j.set_ydata(ffts)
         j.set_xdata(freqs)
+        ax4.set_ylim([0,np.max(ffts)])
         
         indexes = peakutils.indexes(fftm, thres=0.03, min_dist=10)
-        l1=freqm[indexes[(len(indexes)-1)/2]] #Defining peaks left and right of the centre peak
-        r1=freqm[indexes[(1+len(indexes))/2]]
-        Al1=fftm[indexes[(1+len(indexes))/2]]
+        l1=freqm[indexes[(len(indexes)-2)/2]] #Defining peaks left and right of the centre peak
+        r1=freqm[indexes[(2+len(indexes))/2]]
+        Al1=fftm[indexes[(2+len(indexes))/2]]
         Ar1=fftm[indexes[(len(indexes)-2)/2]]
         
         Fao = freqm[indexes[(len(indexes))/2]] #Carrier Frequency
-        Fa1 = Ff*((Fao - l1) + (r1 - Fao)) #Distance between two frequencies, FM Frequency
+        Fa1 = ((Fao - l1) + (r1 - Fao))/2 #Distance between two frequencies, FM Frequency
         
         FaS = np.sin(2*np.pi*Fa1*time)*np.max(freqMod)
         FcS = np.sin(np.arcsin(freqMod) - FaS)
         
         plt.draw()
         plt.pause(0.0000000001)
-        Sbl=Fao-Fa1
-        Sbh=Fao+Fa1
-        print "  ",Fao,"  |     ",Fa1,"   | ",Sbl," | ",Sbh
-        print Al1, Ar1
+        Sbl=l1
+        Sbh=r1
+        print "  ",Fao,"   |     ",Fa1,"  | ",Sbl,"  | ",Sbh
         
         AmpA = AmpB = max(freqMod)
         
-        Prod = AmpA*np.sin(l1*time)*AmpB*np.sin(r1*time)
-        ProdS = Prod + AmpA*np.cos((l1+r1)*time)*AmpB/2
+        Prod = AmpA*np.sin(2*np.pi*l1*time)*AmpB*np.sin(2*np.pi*r1*time)
+        ProdS = Prod + AmpA*np.cos(2*np.pi*(l1+r1)*time)*AmpB/2
         
         ffts = np.abs(np.fft.fft(ProdS))
         freqs = Sf*np.fft.fftfreq(ffts.size, fsi)
