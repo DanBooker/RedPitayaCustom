@@ -13,4 +13,4 @@ phase = df['phase(ns)']
 phasef = phase/freq
 amp = df['Amplitude(mV)']
 
-plt.plot(freq, phasef/np.max(phasef), lw=5, c='r')
+plt.plot(freq, amp/np.max(amp), lw=5, c='r')
