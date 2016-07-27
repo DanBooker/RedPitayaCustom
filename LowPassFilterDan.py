@@ -15,7 +15,12 @@ ax.set_xlabel('Time(ms)')
 
 #-----------------------------------------------------------------------------
 
-startRP(1)
+dec=1
+startRP(dec)
+Sf = 8192/dec
+fsi = 1.0/16384
+timeEnd =1
+time = np.linspace(0,1.0/Sf,16384)
 
 #-----------------------------------------------------------------------------
 
@@ -24,14 +29,16 @@ ch2 = np.asarray(getdata(2,2))
 signal = ch1*ch2
 #time = np.linspace(0, timescale, len(buff))
 fft=np.fft.fft(signal)
+freqs = Sf*np.fft.fftfreq(fft.size, fsi)
+
 fft2=np.copy(fft)
-for i in range (500,len(fft2)):
+for i in range (50,len(fft2)):
     fft2[i]=0
 
 ifft=np.fft.ifft(fft2)
-l, = ax.plot(signal) #plot data
-g, = ax2.plot(fft)
-h, = ax3.plot(ifft)
+l, = ax.plot(time,signal) #plot data
+g, = ax2.plot(freqs, fft)
+h, = ax3.plot(time, ifft)
 #ax2.set_xlim([0, 340])
 #ax2.set_ylim([-8000,8000])
 plt.show()
@@ -46,7 +53,7 @@ while 1:
         l.set_ydata(signal) #updata graph
         fft=np.fft.fft(signal)
         fft2=np.copy(fft)
-        for i in range (500,len(fft2)):
+        for i in range (50,len(fft2)):
             fft2[i]=0
         ifft=np.fft.ifft(fft2)        
         g.set_ydata(fft) #updates fft
