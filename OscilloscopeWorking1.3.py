@@ -15,21 +15,21 @@ ax.set_xlabel('Time(ms)')
 
 #-----------------------------------------------------------------------------
 
-rp_s = scpi.scpi('152.78.193.126') #connect to red pitaya ip
+rp_s = scpi.scpi('152.78.194.163') #connect to red pitaya ip
 
 timescale = 1 #timescale of x-axis in ms
 
 sample_rate_dict = {'125':'125MHz', '15.6': '15_6MHz', '1.9': '1_9MHz'} #possible sample rates
 
-rp_s.tx_txt('ACQ:DEC 8192') #decimation
+rp_s.tx_txt('ACQ:DEC 1') #decimation
 rp_s.tx_txt('ACQ:SRAT '+ sample_rate_dict['125']) #sample rate
-rp_s.tx_txt('ACQ:TRIG:LEV 100') #trigger level in mV
+rp_s.tx_txt('ACQ:TRIG:LEV 0') #trigger level in mV
 rp_s.tx_txt('ACQ:TRIG:DLY 8192') #trigger delay in sample steps
 
 #-----------------------------------------------------------------------------
 
 '''Function to read data from Red Pitaya and return as array'''
-def getdata(ch=1, tch=1):
+def getdata(ch=1, tch=2):
     rp_s.tx_txt('ACQ:START')
     rp_s.tx_txt('ACQ:TRIG CH%d_PE' % tch)
     while 1:        
@@ -59,10 +59,11 @@ while 1:
         buff = getdata() #get new set of data
         l.set_ydata(buff) #updata graph
         g.set_ydata(np.fft.fft(buff)) #updates fft
-        ax.set_ylim([0.95*np.min(buff), 1.05*np.max(buff)])
+        ax.set_ylim([1.08*np.min(buff), 1.08*np.max(buff)])
+        ax.set_xlim(0,2000)
         #ax2.set_ylim([np.min(np.fft.fft(buff)), np.max(np.fft.fft(buff))])
         plt.draw()
-        plt.pause(0.0000000001)
+        plt.pause(0.000001)
     except KeyboardInterrupt:
         rp_s.tx_txt('ACQ:RST')   #reset acqusition
         break

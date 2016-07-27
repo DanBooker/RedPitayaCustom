@@ -74,7 +74,7 @@ positives = np.where(freqm>=0)
 fftm = fftm[positives]
 freqm = freqm[positives]
 
-indexes = peakutils.indexes(fftm, thres=0.03, min_dist=10)
+indexes = peakutils.indexes(fftm, thres=0.01, min_dist=10)
 l1=freqm[indexes[(len(indexes)-2)/2]] #Defining peaks left and right of the centre peak
 r1=freqm[indexes[(2+len(indexes))/2]]
 Al1=fftm[indexes[(2+len(indexes))/2]]
@@ -107,6 +107,11 @@ g, = ax2.plot(freqm, fftm)
 h, = ax3.plot(time, ProdS)
 j, = ax4.plot(freqs,ffts)
 
+x=[]
+y=[]
+z=[]
+z1=[]
+
 plt.show()
 
 print "Carrier Frequency | Modulating Frequency | Lower Sideband | Higher Sideband"
@@ -134,13 +139,15 @@ while 1:
         h.set_xdata(time)
         j.set_ydata(ffts)
         j.set_xdata(freqs)
+        ax3.set_ylim([np.min(ProdS), np.max(ProdS)])
         ax4.set_ylim([0,np.max(ffts)])
         
-        indexes = peakutils.indexes(fftm, thres=0.03, min_dist=10)
+        indexes = peakutils.indexes(fftm, thres=0.01, min_dist=10)
         l1=freqm[indexes[(len(indexes)-2)/2]] #Defining peaks left and right of the centre peak
         r1=freqm[indexes[(2+len(indexes))/2]]
         Al1=fftm[indexes[(2+len(indexes))/2]]
         Ar1=fftm[indexes[(len(indexes)-2)/2]]
+        Amid=fftm[indexes[(len(indexes))/2]]
         
         Fao = freqm[indexes[(len(indexes))/2]] #Carrier Frequency
         Fa1 = ((Fao - l1) + (r1 - Fao))/2 #Distance between two frequencies, FM Frequency
@@ -149,12 +156,14 @@ while 1:
         FcS = np.sin(np.arcsin(freqMod) - FaS)
         
         plt.draw()
-        plt.pause(0.0000000001)
+        plt.pause(0.0005)
         Sbl=l1
         Sbh=r1
         print "  ",Fao,"   |     ",Fa1,"  | ",Sbl,"  | ",Sbh
         
-        AmpA = AmpB = max(freqMod)
+        AmpMid = max(freqMod)
+        AmpA = max(freqMod)*(Al1/Amid)
+        AmpB = max(freqMod)*(Ar1/Amid)
         
         Prod = AmpA*np.sin(2*np.pi*l1*time)*AmpB*np.sin(2*np.pi*r1*time)
         ProdS = Prod + AmpA*np.cos(2*np.pi*(l1+r1)*time)*AmpB/2
@@ -165,9 +174,16 @@ while 1:
         ffts = ffts[positives]
         freqs = freqs[positives]
         
+        x.append(freqm[indexes[len(indexes)/2]])
+        y.append(((np.max(ProdS))-np.min(ProdS))/2) 
+        z.append(AmpA*AmpB/2)        
+        z1.append(np.min(freqMod))
+        
     except KeyboardInterrupt:
         rp_s.tx_txt('ACQ:RST')   #reset acqusition
         break
+    
+
 
 #indexes = peakutils.indexes(fftm, thres=0.02, min_dist=30)
 #plt.figure(figsize=(10,6))
