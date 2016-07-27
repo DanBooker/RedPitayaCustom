@@ -19,14 +19,20 @@ ch2 = np.asarray(getdata(2,2))      #get data from channel 2
 sig = ch1*ch2                       #multiply the two sine waves together
 t = np.linspace(0,1.0/tc, 1*len(ch1))
 
-b, a = signal.butter(3, 0.5)               #Set up low pass
+#order = 25
+#cutoff = 0.139329
+order = 3
+cutoff = 0.0075
+
+b, a = signal.butter(order, cutoff)               #Set up low pass
 zi = signal.lfilter_zi(b,a)
 z, _ = signal.lfilter(b,a,sig, zi=zi*sig[0])
 z2, _ = signal.lfilter(b,a, z, zi=zi*z[0])
 z3, _ = signal.lfilter(b,a,z2, zi=zi*z2[0])
+fft = np.fft.fft(z3)
 
 g, = ax.plot(t, sig)                #Set up updating plots
-h, = ax2.plot(t, z)
+h, = ax2.plot(fft)
 j, = ax3.plot(t,z2)
 k, = ax4.plot(t,z3)
 #y=[]
@@ -37,16 +43,17 @@ while 1:
         ch2 = np.asarray(getdata(2,2))      #get data from channel 2
         sig = ch1*ch2                       #multiply the two sine waves together
         g.set_ydata(sig)                    #update graph
-        ax.set_xlim(0,0.00001)
-        ax2.set_xlim(0,0.00001)
-        ax3.set_xlim(0,0.00004)
-        ax4.set_xlim(0,0.00001)
-        b, a = signal.butter(3, 0.5)
+        ax.set_xlim(0.000015,0.00008)
+        #ax2.set_xlim(0,0.00004)
+        ax3.set_xlim(0.00001,0.00008)
+        ax4.set_xlim(0.00001,0.00008)
+        b, a = signal.butter(order, cutoff)
         zi = signal.lfilter_zi(b,a)         #Re-filter the signal
         z, _ = signal.lfilter(b,a,sig, zi=zi*sig[0])
         z2, _ = signal.lfilter(b,a, z, zi=zi*z[0])
         z3, _ = signal.lfilter(b,a,z2, zi=zi*z2[0])
-        h.set_ydata(z)                      #update graphs of various filtration
+        fft = np.fft.fft(z3)
+        h.set_ydata(fft)                      #update graphs of various filtration
         j.set_ydata(z2)
         k.set_ydata(z3)
         #y.append(np.max(z3))
