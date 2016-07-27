@@ -15,17 +15,17 @@ ax.set_xlabel('Time(ms)')
 
 #-----------------------------------------------------------------------------
 
-startRP()
+startRP(1)
 
 #-----------------------------------------------------------------------------
 
-ch1 = np.asarray(getdata(1,1)) #get data from red pitaya
+ch1 = np.asarray(getdata(1,2)) #get data from red pitaya
 ch2 = np.asarray(getdata(2,2))
 signal = ch1*ch2
 #time = np.linspace(0, timescale, len(buff))
 fft=np.fft.fft(signal)
 fft2=np.copy(fft)
-for i in range (10,len(fft2)):
+for i in range (500,len(fft2)):
     fft2[i]=0
 
 ifft=np.fft.ifft(fft2)
@@ -40,13 +40,13 @@ plt.show()
 
 while 1:
     try:
-        ch1 = np.asarray(getdata(1,1)) #get data from red pitaya
+        ch1 = np.asarray(getdata(1,2)) #get data from red pitaya
         ch2 = np.asarray(getdata(2,2))
         signal = ch1*ch2
         l.set_ydata(signal) #updata graph
         fft=np.fft.fft(signal)
         fft2=np.copy(fft)
-        for i in range (100,len(fft2)):
+        for i in range (500,len(fft2)):
             fft2[i]=0
         ifft=np.fft.ifft(fft2)        
         g.set_ydata(fft) #updates fft

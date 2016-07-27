@@ -8,10 +8,10 @@ rp_s = scpi.scpi('152.78.194.163') #connect to red pitaya ip
 def startRP(dec=1, lvl=0, dly=8192):
     sample_rate_dict = {'125':'125MHz', '15.6': '15_6MHz', '1.9': '1_9MHz'} #possible sample rates
     
-    rp_s.tx_txt('ACQ:DEC 64') #decimation
+    rp_s.tx_txt('ACQ:DEC %d' %dec) #decimation
     rp_s.tx_txt('ACQ:SRAT '+ sample_rate_dict['125']) #sample rate
-    rp_s.tx_txt('ACQ:TRIG:LEV 100') #trigger level in mV
-    rp_s.tx_txt('ACQ:TRIG:DLY 8192') #trigger delay in sample steps
+    rp_s.tx_txt('ACQ:TRIG:LEV %d' %lvl) #trigger level in mV
+    rp_s.tx_txt('ACQ:TRIG:DLY %d' %dly) #trigger delay in sample steps
 
 #-----------------------------------------------------------------------------
 
@@ -39,7 +39,6 @@ def resetRP():
 
 def gencont(ch=2, freq=100000, ampl=1, wave_form='sine'):
     
-    rp_s.tx_txt('GEN:RST')
     rp_s.tx_txt('SOUR' +str(ch)+ ':FUNC ' + str(wave_form).upper())
     rp_s.tx_txt('SOUR' +str(ch)+ ':FREQ:FIX ' + str(freq))
     rp_s.tx_txt('SOUR' +str(ch)+ ':VOLT ' + str(ampl))
