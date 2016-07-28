@@ -21,8 +21,8 @@ t = np.linspace(0,1.0/tc, 1*len(ch1))
 
 #order = 25
 #cutoff = 0.139329
-order = 3
-cutoff = 0.0075
+order = 10
+cutoff = 0.035
 
 b, a = signal.butter(order, cutoff)               #Set up low pass
 zi = signal.lfilter_zi(b,a)
@@ -36,7 +36,8 @@ h, = ax2.plot(fft)
 j, = ax3.plot(t,z2)
 k, = ax4.plot(t,z3)
 #y=[]
-
+#y1=[]
+print np.where(z3>0.00216)
 while 1:
     try:
         ch1 = np.asarray(getdata(1,2))      #get data from channel 1
@@ -47,6 +48,8 @@ while 1:
         #ax2.set_xlim(0,0.00004)
         ax3.set_xlim(0.00001,0.00008)
         ax4.set_xlim(0.00001,0.00008)
+        ax3.set_ylim(-0.01, 0.01)
+        ax4.set_ylim(-0.01, 0.01)
         b, a = signal.butter(order, cutoff)
         zi = signal.lfilter_zi(b,a)         #Re-filter the signal
         z, _ = signal.lfilter(b,a,sig, zi=zi*sig[0])
@@ -56,7 +59,8 @@ while 1:
         h.set_ydata(fft)                      #update graphs of various filtration
         j.set_ydata(z2)
         k.set_ydata(z3)
-        #y.append(np.max(z3))
+        #y.append((z3[12100]))
+        #y1.append((z3[12500]))
         plt.draw()
         plt.pause(0.00000000001)
     except KeyboardInterrupt:
