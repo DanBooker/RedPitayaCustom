@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9514ac6a-0464-4d58-bcc9-2c2830c38914}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>Frequency mod.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ExampleOutput.py" />
+    <Compile Include="Frequency mod.py" />
+    <Compile Include="LCResonance.py" />
+    <Compile Include="LowPassFilterDan.py" />
+    <Compile Include="MixerLowPassFilterBen.py" />
+    <Compile Include="MixerLowPassFilterBen1.1.py" />
+    <Compile Include="MixerLowPassFilterHighPassBen1.1.py" />
+    <Compile Include="modulation 2.py" />
+    <Compile Include="OscilloscopePeakDetection.py" />
+    <Compile Include="OscilloscopeWithGradient.py" />
+    <Compile Include="OscilloscopeWorking1.2.py" />
+    <Compile Include="OscilloscopeWorking1.3.py" />
+    <Compile Include="Peak detection on Fourier.py" />
+    <Compile Include="PeakDetection.py" />
+    <Compile Include="Read ch1 and ch2.py" />
+    <Compile Include="ReadChannels.py" />
+    <Compile Include="Red Pitaya Demodulation test High Freq.py" />
+    <Compile Include="Red Pitaya Demodulation test.py" />
+    <Compile Include="redpitaya_scpi.py" />
+    <Compile Include="rpfunctions.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".git\COMMIT_EDITMSG" />
+    <Content Include=".git\config" />
+    <Content Include=".git\description" />
+    <Content Include=".git\FETCH_HEAD" />
+    <Content Include=".git\HEAD" />
+    <Content Include=".git\hooks\applypatch-msg.sample" />
+    <Content Include=".git\hooks\commit-msg.sample" />
+    <Content Include=".git\hooks\post-update.sample" />
+    <Content Include=".git\hooks\pre-applypatch.sample" />
+    <Content Include=".git\hooks\pre-commit.sample" />
+    <Content Include=".git\hooks\pre-push.sample" />
+    <Content Include=".git\hooks\pre-rebase.sample" />
+    <Content Include=".git\hooks\prepare-commit-msg.sample" />
+    <Content Include=".git\hooks\update.sample" />
+    <Content Include=".git\index" />
+    <Content Include=".git\info\exclude" />
+    <Content Include=".git\logs\HEAD" />
+    <Content Include=".git\logs\refs\heads\master" />
+    <Content Include=".git\logs\refs\remotes\origin\HEAD" />
+    <Content Include=".git\logs\refs\remotes\origin\master" />
+    <Content Include=".git\objects\01\164840b1823221ee00d37be5188cf12a1dd921" />
+    <Content Include=".git\objects\03\e20cac0d6634de137b898f9bcb4b29b65dec4d" />
+    <Content Include=".git\objects\05\fa16f17afd055a08417a127b59b1a74aa613c0" />
+    <Content Include=".git\objects\06\0f1ee64b5f9d415ffc4524fa918d43537e8be4" />
+    <Content Include=".git\objects\06\bda77bc54b86183976b738bbc059f5d148d3b2" />
+    <Content Include=".git\objects\09\c3bce6982b3c994f12deb31e5eb109e4063792" />
+    <Content Include=".git\objects\0a\5125d055302090bc0a7dd7a77e73dcbef5689f" />
+    <Content Include=".git\objects\0b\ba04cd07c8c1fed5eabca4a82a1da50337c974" />
+    <Content Include=".git\objects\11\7b47de684eaa1f3dc77cbb2c42c16008099a3c" />
+    <Content Include=".git\objects\14\1f94f622991fd2676c4198274f2acb664b9148" />
+    <Content Include=".git\objects\17\a3fe319c161c6389653d552642579d3e34b401" />
+    <Content Include=".git\objects\18\444b6dd005b0803f5ae2a9f22bcbb03051a080" />
+    <Content Include=".git\objects\19\d6d378078f5e84e99c3cd96e0f6094b53e745c" />
+    <Content Include=".git\objects\1d\eae021799208b7d78217cc67dc0c99021da549" />
+    <Content Include=".git\objects\20\ac0cafcf8b176cfa5fbd09e35b6dadd1a8b29e" />
+    <Content Include=".git\objects\22\d54ac8bd9df42b235cc394222db5bfcff92fb4" />
+    <Content Include=".git\objects\25\020a20bbdaf18bdb192ca4c08de0b517da8064" />
+    <Content Include=".git\objects\2c\6182dba8dbc5228a50a181a3c58c65f9af1013" />
+    <Content Include=".git\objects\2d\282b93e7bbfbd4f15a9e11ca8c4153a6912277" />
+    <Content Include=".git\objects\2f\6a0bfdc4fd17b4ecbb08619a58dc5996ebee99" />
+    <Content Include=".git\objects\31\f82d3e323e25346eb0ef822bb262220da1b49c" />
+    <Content Include=".git\objects\34\4e5636b360d08e489f9ec1f6c788a89accd7fc" />
+    <Content Include=".git\objects\37\df29d2f600af234888e4efd906846da60322ea" />
+    <Content Include=".git\objects\3a\1348b719442fe8e531635c5ca1ccbcc576ba47" />
+    <Content Include=".git\objects\3a\ad56389528486d93c42cddffeeb100fd6b9b2c" />
+    <Content Include=".git\objects\3f\7ce25561c29193cf2e6c221e70633f43b4377c" />
+    <Content Include=".git\objects\41\4c061e8dc98d138171ac0b968fb9d0df7c419f" />
+    <Content Include=".git\objects\42\d336243b9855b78244f1f6b096ba0ea6dd217a" />
+    <Content Include=".git\objects\47\3a2d00b439fc0ecf48e2923255d27319938e1a" />
+    <Content Include=".git\objects\4b\e72f8417e75e83f3e7c98aa5e9259bdb30cb13" />
+    <Content Include=".git\objects\4d\6f8bcdde72f63d2706994f7f87bfe6f3d52e83" />
+    <Content Include=".git\objects\4f\eec2d9aa522d1c14f663d75cd0af847313beee" />
+    <Content Include=".git\objects\50\8285af426a1450c6d513acf2c1937776c82f4c" />
+    <Content Include=".git\objects\51\343b4cda5e697cb1ef4a6c80af6f9e406a2c49" />
+    <Content Include=".git\objects\54\60836726019a324631e2fc1e740533985eb816" />
+    <Content Include=".git\objects\54\e05e0f040b3351850655c3848e32f37d0c4251" />
+    <Content Include=".git\objects\54\e423f7a149f333c364c3290b14a91671213595" />
+    <Content Include=".git\objects\56\a584e1f1dbf082ef57c3809527099f58d040d0" />
+    <Content Include=".git\objects\5a\4c404458073b007f7255e49e5dde8aeedb2196" />
+    <Content Include=".git\objects\5d\2fe69ac7c3a9d6a85f6cbf9c9ba2a6feff092a" />
+    <Content Include=".git\objects\63\bae1add7f302eee5bce5e7ac4315a1d1bd4dea" />
+    <Content Include=".git\objects\63\e3f410ed87a8ee4b0e82659ee39c16d508ea23" />
+    <Content Include=".git\objects\63\f6ebaa587b11bb41d57db7a9fc43ac3294a140" />
+    <Content Include=".git\objects\64\7d9af1699f10d3331bfb516c3540042c9cd92b" />
+    <Content Include=".git\objects\67\69cf72d7f58c8ef302a7ea05b09d79a463daa7" />
+    <Content Include=".git\objects\67\cf5ec842bd5d71fa3087328fa1915476448397" />
+    <Content Include=".git\objects\69\ffe3bd3c95789f694a0520028092bc1900a952" />
+    <Content Include=".git\objects\6e\9aaa24988a9003eab5ed28e70f658e60649c6d" />
+    <Content Include=".git\objects\6f\44e42490d44a55e32986ca0ec41e37b0d37660" />
+    <Content Include=".git\objects\73\b642f996854f50ce2a7cd30f0ed932fdad2b03" />
+    <Content Include=".git\objects\75\bf0cdfbc96cff72b4d6cbf7e269581492e425b" />
+    <Content Include=".git\objects\76\f86fdc31862efbc56997806a1c66045c5b21a2" />
+    <Content Include=".git\objects\79\23a178deb30b0fd24bab9572c7ed996464aa08" />
+    <Content Include=".git\objects\79\c3b63218b5a3a1ac71ffb2d5551560a80077e7" />
+    <Content Include=".git\objects\7c\36ea5031133bacab19e66a76654541d79450fb" />
+    <Content Include=".git\objects\7c\6aba6809a7b663e7948aacc72037322ba61b2d" />
+    <Content Include=".git\objects\89\66e010ee86be1cac8d781bdfa05cfdd5528a06" />
+    <Content Include=".git\objects\8a\9af66761655ccd7ff07070959d07b4f470018b" />
+    <Content Include=".git\objects\8e\9a8bdc186a76a505aba442af8fa311fc66782d" />
+    <Content Include=".git\objects\8e\c168b8041a065323d79912be6df258cddd8a79" />
+    <Content Include=".git\objects\96\7ba40e78bbec89402340b3c7dca6ca4c652e95" />
+    <Content Include=".git\objects\96\9876cbc274c07310386bea4e275f5680caf6fe" />
+    <Content Include=".git\objects\97\a5800c93235b631604da72e2cd96c7163e83ef" />
+    <Content Include=".git\objects\98\8547fc77831b1bbb07f009e7a61461a6891da6" />
+    <Content Include=".git\objects\99\6e046d271e75ff8631037b1f6c97c50a08233d" />
+    <Content Include=".git\objects\9a\267791c7838b3198ace8b32c26ac06f884663d" />
+    <Content Include=".git\objects\9c\6158da7f323f8f3a1b746038700985e620bfc1" />
+    <Content Include=".git\objects\9c\c9a9380159b91ea96fd65fdfbdc6c1b1cd1237" />
+    <Content Include=".git\objects\9d\9b2d8e71dde48e4949666146598794cd99ceba" />
+    <Content Include=".git\objects\9e\eba9e4eed0b4c17a328ca12516c61a350ac5d3" />
+    <Content Include=".git\objects\a2\0f0e5f6a0235a417b7306216c97604fa06b9c5" />
+    <Content Include=".git\objects\a4\1b92035d7f539926a32dc40885bc97322e011b" />
+    <Content Include=".git\objects\a4\4706ba72206cd742cd45cce55b8c76ff32c083" />
+    <Content Include=".git\objects\a9\2a860afdcf41d8cf99c6e6978031cbc632c1c6" />
+    <Content Include=".git\objects\ae\9118e66efd0c1e7ebb7729f171657f041d7815" />
+    <Content Include=".git\objects\b0\a50ea6031d375635c1a80bd3ce1efa40b7ee2e" />
+    <Content Include=".git\objects\b0\e036cb87323e9e9512b21c056d4206c73606ad" />
+    <Content Include=".git\objects\b2\fef9675e7fcb8afa685cf68279b7a9891eb072" />
+    <Content Include=".git\objects\b4\5d1f9b333095c8d192ae8962e435f5797848fc" />
+    <Content Include=".git\objects\b6\05a6217f4c8a2a3695f88a3b6e6327bf1df688" />
+    <Content Include=".git\objects\b7\0977e6f08ee5b110e070aa6c59b44f0cf59af6" />
+    <Content Include=".git\objects\b9\55cc1c3d7c247f1028378eda996cd5c4131422" />
+    <Content Include=".git\objects\ba\440dc99a44a8c1d58b6babbdda754de8dd224d" />
+    <Content Include=".git\objects\ba\dd86f257e78c703996b8f77468b3582891aed2" />
+    <Content Include=".git\objects\bf\9ea41b7997cf6a0f389f10911c8e78e84cbcc8" />
+    <Content Include=".git\objects\c0\627e7db15c8c69e437ec100b08ab87d0bcd1ad" />
+    <Content Include=".git\objects\c0\fca25706cf3d7743c83f002d569b39e4d4413a" />
+    <Content Include=".git\objects\c6\19ef4530f317ac9082e884ec5a06f0e8edb7f2" />
+    <Content Include=".git\objects\c9\0f7147832147b2512470c62b8901ef26f742c6" />
+    <Content Include=".git\objects\ca\9e61ae3036861b312dc84b477ea04a035f35c5" />
+    <Content Include=".git\objects\ca\abbb6434e670e74785051c4619835125369e10" />
+    <Content Include=".git\objects\cf\75e938d499334b363fb0515af2fc0701af8b04" />
+    <Content Include=".git\objects\d2\44eeb620c3d9c2b2e806cf0d024111af13d22b" />
+    <Content Include=".git\objects\d6\ecd499b141325c8c4ae3596f8b6a0b8dd5c97d" />
+    <Content Include=".git\objects\d8\ab049263eb5b2fd0ee281bf32545c0dae1d5e5" />
+    <Content Include=".git\objects\da\a743a53bdf5f15099a808d795f0cd2b6ba7452" />
+    <Content Include=".git\objects\dc\2380570e51e1cabed92ef1d5dd4c0ed9f42bc2" />
+    <Content Include=".git\objects\e0\0f995cffc92245660803207a7ed9aaa62608e2" />
+    <Content Include=".git\objects\e1\5a97e0d778e98686ef015c26540f0f01a33332" />
+    <Content Include=".git\objects\e4\d2fa65f56987eddf19b35b0f021ef6da5b78a4" />
+    <Content Include=".git\objects\e5\cf60618efb0bd6691b77ff86342f83b52f05a0" />
+    <Content Include=".git\objects\e9\6bcdec116b80554f10baff6826ab7f18c2e48a" />
+    <Content Include=".git\objects\ef\3d46ba76018eca21e40d53412d406a0059e511" />
+    <Content Include=".git\objects\f3\b4fdf17139d9457175a7ad037b457bdc2ed212" />
+    <Content Include=".git\objects\f4\b6cc36ae7683d41d77fc1809d061f4f5b5af27" />
+    <Content Include=".git\objects\fa\f22c04cd3f49a0fa3f9b1796f6d3cbc0eee04e" />
+    <Content Include=".git\objects\fb\4ca1ca4b8f704d3192f7f5248868bbf7859cd4" />
+    <Content Include=".git\objects\fc\02b4e4b4aeeae74be09daeafbdc0fee95eeea4" />
+    <Content Include=".git\ORIG_HEAD" />
+    <Content Include=".git\packed-refs" />
+    <Content Include=".git\refs\heads\master" />
+    <Content Include=".git\refs\remotes\origin\HEAD" />
+    <Content Include=".git\refs\remotes\origin\master" />
+    <Content Include="README.md" />
+    <Content Include="RedPitaya.pyproj" />
+    <Content Include="redpitaya_scpi.pyc" />
+    <Content Include="rpfunctions.pyc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git" />
+    <Folder Include=".git\hooks" />
+    <Folder Include=".git\info" />
+    <Folder Include=".git\logs" />
+    <Folder Include=".git\logs\refs\" />
+    <Folder Include=".git\logs\refs\heads" />
+    <Folder Include=".git\logs\refs\remotes\" />
+    <Folder Include=".git\logs\refs\remotes\origin" />
+    <Folder Include=".git\objects\" />
+    <Folder Include=".git\objects\01" />
+    <Folder Include=".git\objects\03" />
+    <Folder Include=".git\objects\05" />
+    <Folder Include=".git\objects\06" />
+    <Folder Include=".git\objects\09" />
+    <Folder Include=".git\objects\0a" />
+    <Folder Include=".git\objects\0b" />
+    <Folder Include=".git\objects\11" />
+    <Folder Include=".git\objects\14" />
+    <Folder Include=".git\objects\17" />
+    <Folder Include=".git\objects\18" />
+    <Folder Include=".git\objects\19" />
+    <Folder Include=".git\objects\1d" />
+    <Folder Include=".git\objects\20" />
+    <Folder Include=".git\objects\22" />
+    <Folder Include=".git\objects\25" />
+    <Folder Include=".git\objects\2c" />
+    <Folder Include=".git\objects\2d" />
+    <Folder Include=".git\objects\2f" />
+    <Folder Include=".git\objects\31" />
+    <Folder Include=".git\objects\34" />
+    <Folder Include=".git\objects\37" />
+    <Folder Include=".git\objects\3a" />
+    <Folder Include=".git\objects\3f" />
+    <Folder Include=".git\objects\41" />
+    <Folder Include=".git\objects\42" />
+    <Folder Include=".git\objects\47" />
+    <Folder Include=".git\objects\4b" />
+    <Folder Include=".git\objects\4d" />
+    <Folder Include=".git\objects\4f" />
+    <Folder Include=".git\objects\50" />
+    <Folder Include=".git\objects\51" />
+    <Folder Include=".git\objects\54" />
+    <Folder Include=".git\objects\56" />
+    <Folder Include=".git\objects\5a" />
+    <Folder Include=".git\objects\5d" />
+    <Folder Include=".git\objects\63" />
+    <Folder Include=".git\objects\64" />
+    <Folder Include=".git\objects\67" />
+    <Folder Include=".git\objects\69" />
+    <Folder Include=".git\objects\6e" />
+    <Folder Include=".git\objects\6f" />
+    <Folder Include=".git\objects\73" />
+    <Folder Include=".git\objects\75" />
+    <Folder Include=".git\objects\76" />
+    <Folder Include=".git\objects\79" />
+    <Folder Include=".git\objects\7c" />
+    <Folder Include=".git\objects\89" />
+    <Folder Include=".git\objects\8a" />
+    <Folder Include=".git\objects\8e" />
+    <Folder Include=".git\objects\96" />
+    <Folder Include=".git\objects\97" />
+    <Folder Include=".git\objects\98" />
+    <Folder Include=".git\objects\99" />
+    <Folder Include=".git\objects\9a" />
+    <Folder Include=".git\objects\9c" />
+    <Folder Include=".git\objects\9d" />
+    <Folder Include=".git\objects\9e" />
+    <Folder Include=".git\objects\a2" />
+    <Folder Include=".git\objects\a4" />
+    <Folder Include=".git\objects\a9" />
+    <Folder Include=".git\objects\ae" />
+    <Folder Include=".git\objects\b0" />
+    <Folder Include=".git\objects\b2" />
+    <Folder Include=".git\objects\b4" />
+    <Folder Include=".git\objects\b6" />
+    <Folder Include=".git\objects\b7" />
+    <Folder Include=".git\objects\b9" />
+    <Folder Include=".git\objects\ba" />
+    <Folder Include=".git\objects\bf" />
+    <Folder Include=".git\objects\c0" />
+    <Folder Include=".git\objects\c6" />
+    <Folder Include=".git\objects\c9" />
+    <Folder Include=".git\objects\ca" />
+    <Folder Include=".git\objects\cf" />
+    <Folder Include=".git\objects\d2" />
+    <Folder Include=".git\objects\d6" />
+    <Folder Include=".git\objects\d8" />
+    <Folder Include=".git\objects\da" />
+    <Folder Include=".git\objects\dc" />
+    <Folder Include=".git\objects\e0" />
+    <Folder Include=".git\objects\e1" />
+    <Folder Include=".git\objects\e4" />
+    <Folder Include=".git\objects\e5" />
+    <Folder Include=".git\objects\e9" />
+    <Folder Include=".git\objects\ef" />
+    <Folder Include=".git\objects\f3" />
+    <Folder Include=".git\objects\f4" />
+    <Folder Include=".git\objects\fa" />
+    <Folder Include=".git\objects\fb" />
+    <Folder Include=".git\objects\fc" />
+    <Folder Include=".git\refs\" />
+    <Folder Include=".git\refs\heads" />
+    <Folder Include=".git\refs\remotes\" />
+    <Folder Include=".git\refs\remotes\origin" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
