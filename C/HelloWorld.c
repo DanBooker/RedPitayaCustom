@@ -8,8 +8,8 @@ int main()
 	pntr = &i;
 	printf "Please enter an integer value: ";
 	fgets(i);
-	printf ("The value you entered is ", i);
-	printf(" and its double is ", i * 2 , ".\n");
-	printf("It is located at " , pntr , " in memory.\n");
+	printf ("The value you entered is %d", i);
+	printf(" and its double is %d.\n", i*2);
+	printf("It is located at %d in memory.\n", pntr);
 	return 0;
 }
