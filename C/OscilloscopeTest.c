@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include "redpitaya/rp.h"
 
+
+
 int main(int argc, char **argv) {
 
 	/* Print error, if rp_Init() function failed */
