@@ -1,0 +1,165 @@
+/*
+
+Vivado v2016.2 (64-bit)
+SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+Process ID: 5776
+
+Current time: 	8/8/16 10:27:17 AM BST
+Time zone: 	Greenwich Mean Time (Europe/London)
+
+OS: Windows 10
+Version: 10.0
+Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1366x768
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Tahoma,name=Tahoma,style=plain,size=11
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	C:/Xilinx/Vivado/2016.2/tps/win64/jre
+
+User name: 	RazBB
+User home directory: C:/Users/RazBB
+User working directory: C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example
+User country: 	GB
+User language: 	en
+User locale: 	en_GB
+
+RDI Base root directory: C:/Xilinx/Vivado
+RDI Data directory: C:/Xilinx/Vivado/2016.2/data
+RDI Bin directory: C:/Xilinx/Vivado/2016.2/bin
+
+Vivado preferences path: C:/Users/RazBB/AppData/Roaming/Xilinx/Vivado/2016.2/vivado.ini
+Vivado layouts directory: C:/Users/RazBB/AppData/Roaming/Xilinx/Vivado/2016.2/layouts
+
+GUI allocated memory:	209 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 401 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: START_PROGRESS_DIALOG
+// [GUI Memory]: 29 MB (+28295kb) [00:00:10]
+// [Engine Memory]: 380 MB (+247241kb) [00:00:10]
+// TclEventType: START_PROGRESS_DIALOG
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// bL:g (cv:JFrame):  Sourcing Tcl script 'c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/.Xil/axi_protocol_converter_0/tmp_axi_protocol_converter_0.srcs/sources_1/ip/axi_protocol_converter_0/axi_protocol_converter_0_ex.tcl' : addNotify
+// Tcl Message: source c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/.Xil/axi_protocol_converter_0/tmp_axi_protocol_converter_0.srcs/sources_1/ip/axi_protocol_converter_0/axi_protocol_converter_0_ex.tcl 
+// Tcl Message: # set srcIpDir "c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/.Xil/axi_protocol_converter_0/tmp_axi_protocol_converter_0.srcs/sources_1/ip/axi_protocol_converter_0" # create_project -name axi_protocol_converter_0_example -force 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example' 
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 64 MB (+35267kb) [00:00:15]
+// [Engine Memory]: 431 MB (+33507kb) [00:00:15]
+// [Engine Memory]: 465 MB (+12925kb) [00:00:17]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 465 MB. GUI used memory: 30 MB. Current time: 8/8/16 10:27:24 AM BST
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: PART_MODIFIED
+// Tcl Message: create_project: Time (s): cpu = 00:00:27 ; elapsed = 00:00:11 . Memory (MB): peak = 732.797 ; gain = 98.477 
+// Tcl Message: # set_property part xc7z010clg400-1 [current_project] 
+// Tcl Message: # set_property target_language verilog [current_project] # set_property simulator_language MIXED [current_project] # set_property coreContainer.enable false [current_project] # set returnCode 0 # import_ip -files [list [file join $srcIpDir axi_protocol_converter_0.xci]] -name axi_protocol_converter_0 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: # reset_target {open_example} [get_ips axi_protocol_converter_0] # proc _filter_supported_targets {targets ip} { #   set res {} #   set all [get_property SUPPORTED_TARGETS $ip] #   foreach target $targets { #     lappend res {*}[lsearch -all -inline -nocase $all $target] #   } #   return $res # } # generate_target -quiet [_filter_supported_targets {instantiation_template synthesis simulation implementation shared_logic} [get_ips axi_protocol_converter_0]] [get_ips axi_protocol_converter_0] 
+// TclEventType: LOAD_FEATURE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: CREATE_IP_CORE
+// Tcl Message: INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1' INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sim_1' INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1' 
+// Tcl Message: # set_property TOP [lindex [find_top] 0] [current_fileset] 
+// Tcl Message: # if {[catch {source [file join $srcIpDir ../../ipshared/xilinx.com/axi_protocol_converter_v2_1/ttcl/example_scriptext.tcl]} errMsg]} { #   puts "Error encountered while sourcing custom IP example design script." #   puts "$errorInfo" #   incr returnCode # } ## ipx::get_cores -from project ## get_property NAME $core ## get_property BOARD [current_project] 
+// Tcl Message: ## ipx::get_user_parameters -quiet -of_objects $core ACLK_ASYNC ## ipx::get_user_parameters -quiet -of_objects $core ACLK_RATIO 
+// [Engine Memory]: 537 MB (+50461kb) [00:00:30]
+// [Engine Memory]: 577 MB (+14473kb) [00:00:39]
+// TclEventType: REPORT_IP_STATUS_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 578 MB. GUI used memory: 29 MB. Current time: 8/8/16 10:27:45 AM BST
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: ## concat CONFIG.PRIM_SOURCE {Differential_clock_capable_pin} CONFIG.USE_RESET {false} $list_board_param_clkwiz $clk_freq_list ## get_ips ${CompName}_example_clk_wiz_0 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// Tcl Message: ## get_files  ${CompName}_example_clk_wiz_0.xci 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axi_protocol_converter_0_example_clk_wiz_0'... 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axi_protocol_converter_0_example_clk_wiz_0'... 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axi_protocol_converter_0_example_clk_wiz_0'... 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: CREATE_IP_CORE
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'axi_protocol_converter_0_example_clk_wiz_0'... INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'axi_protocol_converter_0_example_clk_wiz_0'... 
+// Tcl Message: generate_target: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 807.855 ; gain = 4.219 
+// TclEventType: REPORT_IP_STATUS_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// Tcl Message: ## get_ips ${CompName}_example_proc_sys_reset_0 ## get_files ${CompName}_example_proc_sys_reset_0.xci 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axi_protocol_converter_0_example_proc_sys_reset_0'... INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axi_protocol_converter_0_example_proc_sys_reset_0'... 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axi_protocol_converter_0_example_proc_sys_reset_0'... INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'axi_protocol_converter_0_example_proc_sys_reset_0'... 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'axi_protocol_converter_0_example_proc_sys_reset_0'... 
+// Tcl Message: # update_compile_order -fileset [current_fileset] # update_compile_order -fileset [current_fileset -simset] 
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: # set tops [list] # foreach tfile [ get_files -filter {name=~"*.xci" || name=~"*.bd"}] { if { [lsearch [list_property $tfile] PARENT_COMPOSITE_FILE ] == -1} {lappend tops $tfile} } # generate_target all $tops 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'axi_protocol_converter_0'... 
+// Tcl Message: # export_ip_user_files -force 
+// TclEventType: PROJECT_CHANGE
+// Tcl Message: INFO: [exportsim-Tcl-35] Exporting simulation files for "XSIM" (Xilinx Vivado Simulator)... 
+// Tcl Message: INFO: [exportsim-Tcl-29] Script generated: 'C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0/xsim/axi_protocol_converter_0.sh' INFO: [exportsim-Tcl-35] Exporting simulation files for "MODELSIM" (Mentor Graphics ModelSim Simulator)... 
+// Tcl Message: INFO: [exportsim-Tcl-29] Script generated: 'C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0/modelsim/axi_protocol_converter_0.sh' INFO: [exportsim-Tcl-35] Exporting simulation files for "QUESTA" (Mentor Graphics Questa Advanced Simulator)... 
+// Tcl Message: INFO: [exportsim-Tcl-29] Script generated: 'C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0/questa/axi_protocol_converter_0.sh' INFO: [exportsim-Tcl-35] Exporting simulation files for "IES" (Cadence Incisive Enterprise Simulator)... 
+// Tcl Message: INFO: [exportsim-Tcl-29] Script generated: 'C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0/ies/axi_protocol_converter_0.sh' INFO: [exportsim-Tcl-35] Exporting simulation files for "VCS" (Synopsys Verilog Compiler Simulator)... 
+// Tcl Message: INFO: [exportsim-Tcl-29] Script generated: 'C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0/vcs/axi_protocol_converter_0.sh' INFO: [exportsim-Tcl-35] Exporting simulation files for "RIVIERA" (Aldec Riviera-PRO Simulator)... 
+// Tcl Message: INFO: [exportsim-Tcl-29] Script generated: 'C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0/riviera/axi_protocol_converter_0.sh' INFO: [exportsim-Tcl-35] Exporting simulation files for "ACTIVEHDL" (Aldec Active-HDL Simulator)... 
+// TclEventType: PROJECT_CHANGE
+// Tcl Message: INFO: [exportsim-Tcl-29] Script generated: 'C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0/activehdl/axi_protocol_converter_0.sh' 
+// TclEventType: PROJECT_CHANGE
+// Tcl Message: INFO: [exportsim-Tcl-35] Exporting simulation files for "XSIM" (Xilinx Vivado Simulator)... 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: STOP_PROGRESS_DIALOG
+// Tcl Message: INFO: [exportsim-Tcl-35] Exporting simulation files for "XSIM" (Xilinx Vivado Simulator)... 
+// Tcl Message: ERROR: [exportsim-Tcl-34] failed to open file to write (C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_0_example.ip_user_files/sim_scripts/axi_protocol_converter_0_example_proc_sys_reset_0/xsim/axi_protocol_converter_0_example_proc_sys_reset_0.sh) 
+// Tcl Message: export_ip_user_files: Time (s): cpu = 00:00:19 ; elapsed = 00:00:18 . Memory (MB): peak = 823.734 ; gain = 8.816 
+// HOptionPane Error: "ERROR: [exportsim-Tcl-34] failed to open file to write (C:/Users/RazBB/Documents/GitHub/<br>RedPitayaMaster/fpga/project/axi_protocol_converter_0_example/axi_protocol_converter_<br>0_example.ip_user_files/sim_scripts/axi_protocol_converter_0_example_proc_sys_reset_<br>0/xsim/axi_protocol_converter_0_example_proc_sys_reset_0.sh)<br> (Sourcing Tcl script 'c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/.Xil/axi_protocol_converter_0/tmp_axi_protocol_converter_0.srcs/sources_1/ip/axi_protocol_converter_0/axi_protocol_converter_0_ex.tcl')"
+// TclEventType: STOP_PROGRESS_DIALOG
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// [Engine Memory]: 620 MB (+14738kb) [00:01:14]
+// Tcl Message: update_compile_order -fileset sources_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 622 MB. GUI used memory: 30 MB. Current time: 8/8/16 10:28:20 AM BST
+// TclEventType: FILE_SET_CHANGE
+selectButton("PAResourceItoN.MainWindow_THERE_WERE_SOME_ERRORS_WHEN_EXECUTING_TCL_OK", "OK"); // BasicOptionPaneUI$ButtonFactory:JButton (JPanel:JComponent, T:JDialog)

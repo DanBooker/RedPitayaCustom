@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Thu Aug 04 14:17:56 2016
+# Process ID: 9168
+# Current directory: c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga
+# Command line: wbtcv.exe -mode batch -source C:/Users/RazBB/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7100-DESKTOP-UNM7EP2/webtalk/labtool_webtalk.tcl -notrace
+# Log file: c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/webtalk.log
+# Journal file: c:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/RazBB/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7100-DESKTOP-UNM7EP2/webtalk/labtool_webtalk.tcl -notrace

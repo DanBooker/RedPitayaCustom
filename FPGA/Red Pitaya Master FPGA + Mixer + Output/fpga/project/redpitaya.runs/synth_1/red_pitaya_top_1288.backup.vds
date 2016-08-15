@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Thu Aug 11 11:07:29 2016
+# Process ID: 1288
+# Current directory: C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/redpitaya.runs/synth_1
+# Command line: vivado.exe -log red_pitaya_top.vds -mode batch -messageDb vivado.pb -notrace -source red_pitaya_top.tcl
+# Log file: C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/redpitaya.runs/synth_1/red_pitaya_top.vds
+# Journal file: C:/Users/RazBB/Documents/GitHub/RedPitayaMaster/fpga/project/redpitaya.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source red_pitaya_top.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'.
+add_files: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 238.855 ; gain = 32.047
+Command: synth_design -top red_pitaya_top -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 2068 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 324.535 ; gain = 117.727
+---------------------------------------------------------------------------------
